@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GET_WELL_SOON_CLINIC.Models.Doctor>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row" style="padding-top: 100px;">
+    <div class="col-md-6 ">
+        <h2>Doctors List</h2>
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <li>@Html.ActionLink(item.FirstName + " " + item.LastName, "Schedule", new { id = item.DoctorsID })</li>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-6 jumbotron">
+        <div style="font-weight: bold; font-size: 50px;">
+            @Html.ActionLink("Book Appointment", "Create", "Appointments")
+        </div>
+    </div>
+</div>
